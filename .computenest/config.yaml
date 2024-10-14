@@ -11,9 +11,7 @@ Service:
       - Name: 单机版
         Url: 'ros_templates/template.yaml'
         AllowedRegions:
-          - cn-hangzhou
-          - cn-shanghai
-          - cn-beijing
+          - cn-wulanchabu
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
