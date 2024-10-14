@@ -4,7 +4,7 @@ Service:
   DeployMetadata:
     SupplierDeployMetadata:
       FileArtifactRelation:
-        '{{ computenest::file::aliyun-computenest_quickstart-dataease-docker-compose }}':
+        '{{ computenest::file::aliyun-computenest_quickstart-dataease }}':
           ArtifactId: ${Artifact.Artifact_1.ArtifactId}
           ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
     TemplateConfigs:
@@ -17,12 +17,12 @@ Service:
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
-    ShortDescription: docker compose deploy
+    ShortDescription: demo
     Image: 'resources/icons/service_logo.png'
 Artifact:
   Artifact_1:
     ArtifactType: File
-    ArtifactName: aliyun-computenest_quickstart-dataease-docker-compose
+    ArtifactName: aliyun-computenest_quickstart-dataease
     ArtifactProperty:
       RegionId: cn-hangzhou
-      Url: 'resources/artifact_resources/docker_compose.tar'
+      Url: 'resources/artifact_resources/file/aliyun-computenest_quickstart-dataease.tar.gz'
