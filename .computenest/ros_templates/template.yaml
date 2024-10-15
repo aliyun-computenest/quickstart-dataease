@@ -165,7 +165,31 @@ Resources:
             # 源代码通过computenest-cli被打包为tar.gz包，并发布为部署物
             wget '{{ computenest::file::aliyun-computenest_quickstart-dataease }}' -O aliyun-computenest_quickstart-dataease.tar.gz > /var/log/download.log
             tar -zxvf aliyun-computenest_quickstart-dataease.tar.gz && cd "$(tar -tzf aliyun-computenest_quickstart-dataease.tar.gz | head -1 | awk -F'/' '{print $1}')"
-            docker-compose up -d
+            # 安装docker
+            yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+            yum makecache fast
+            yum -y install docker-ce jq
+            mkdir -p /etc/docker
+            tee /etc/docker/daemon.json <<-'EOF'
+            {
+                "registry-mirrors": [
+                    "https://docker.m.daocloud.io",
+                    "https://mirror.baidubce.com",
+                    "https://dockerproxy.com",
+                    "https://mirror.iscas.ac.cn",
+                    "https://huecker.io",
+                    "https://dockerhub.timeweb.cloud",
+                    "https://noohub.ru",
+                    "https://vlgh0kqj.mirror.aliyuncs.com"
+                ]
+            }
+            EOF
+            systemctl enable docker
+            systemctl start docker
+            sleep 10
+            
+            # 启动应用
+            docker compose up -d
 
             ARGUS_VERSION=3.5.7 /bin/bash -c "$(curl -sS https://cms-agent-${RegionId}.oss-${RegionId}-internal.aliyuncs.com/Argus/agent_install_ecs-1.7.sh)" >> /root/install_cms_agent.log 2>&1
           - RegionId:
