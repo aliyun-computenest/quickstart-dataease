@@ -228,6 +228,16 @@ Outputs:
             - Fn::GetAtt:
               - InstanceGroup
               - PublicIps
+  Username:
+    Description:
+      en: Init Username.
+      zh-cn: 初始用户名称。
+    Value: admin
+  Password:
+    Description:
+      en: Init Password.
+      zh-cn: 初始密码。
+    Value: DataEase@123456
 Metadata:
   ALIYUN::ROS::Interface:
     ParameterGroups:
