@@ -187,6 +187,9 @@ Parameters:
           Fn::Equals:
             - ExistingVPC
             - ${VpcOption}
+  pass:
+    Type: String
+    Label: 密码
 Resources:
   # 新建vpc
   EcsVpc:
@@ -337,4 +340,9 @@ Metadata:
           - VSwitchCidrBlock
         Label:
           default: 可用区配置
+      - Parameters:
+          - pass
+        Label:
+          en: Software Configuration
+          zh-cn: 软件配置
       
