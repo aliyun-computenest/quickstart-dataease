@@ -151,6 +151,11 @@ Parameters:
       en: Zone ID
       zh-cn: 可用区ID
     AssociationProperty: ALIYUN::ECS::Instance::ZoneId
+    AssociationPropertyMetadata:
+      DefaultValueStrategy: random
+      InstanceChargeType: ${PayType}
+      SystemDiskCategory: cloud_essd
+      InstanceType: ${EcsInstanceType}
   VpcId:
     Type: String
     Label:
@@ -163,6 +168,7 @@ Parameters:
         - ${VpcOption}
     Default: ''
     AssociationPropertyMetadata:
+      AutoSelectFirst: true
       Visible:
         Condition:
           Fn::Equals:
@@ -180,16 +186,14 @@ Parameters:
         - ExistingVPC
         - ${VpcOption}
     AssociationPropertyMetadata:
-      VpcId: VpcId
-      ZoneId: ZoneId
+      AutoSelectFirst: true
+      VpcId: ${VpcId}
+      ZoneId: ${ZoneId}
       Visible:
         Condition:
           Fn::Equals:
             - ExistingVPC
             - ${VpcOption}
-  pass:
-    Type: String
-    Label: 密码
 Resources:
   # 新建vpc
   EcsVpc:
@@ -340,9 +344,4 @@ Metadata:
           - VSwitchCidrBlock
         Label:
           default: 可用区配置
-      - Parameters:
-          - pass
-        Label:
-          en: Software Configuration
-          zh-cn: 软件配置
       
