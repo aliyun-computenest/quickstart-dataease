@@ -52,5 +52,15 @@ DataEase社区版服务需要对ECS、VPC等资源进行访问和创建操作，
 
 ### 部署步骤
 
-1. 单击[部署链接](https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceId=service-f462f9b21cb7477381f0)，进入服务实例部署界面。
-2. 选择新建ECS实例并根据界面提示配置参数，配置完成后点击下一步：确认订单。
+1. 单击[部署链接](https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceName=DataEase社区版)，进入服务实例部署界面。
+![img.png](img.png)
+2. 根据界面提示配置参数，选择ECS实例类型并设置好可用区等参数，配置完成后点击下一步：确认订单。
+![img_1.png](img_1.png)
+3. 确认订单没问题后，点击 立即创建，服务实例进入到创建过程中。
+![img_2.png](img_2.png)
+4. 服务实例创建成功后，进入服务实例详情页，获取服务实例访问地址。
+![img_3.png](img_3.png)
+5. 点击访问地址，输入默认账号: admin，默认密码: DataEase@123456，即可访问。
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+
