@@ -59,7 +59,7 @@ DataEase社区版服务需要对ECS、VPC等资源进行访问和创建操作，
 3. 确认订单没问题后，点击 立即创建，服务实例进入到创建过程中。
 ![img_2.png](img_2.png)
 4. 服务实例创建成功后，进入服务实例详情页，获取服务实例访问地址。
-![img_3.png](img_3.png)
+![img_4.png](img_4.png)
 5. 点击访问地址，输入默认账号: admin，默认密码: DataEase@123456，即可访问。
 ![img_5.png](img_5.png)
 ![img_6.png](img_6.png)
